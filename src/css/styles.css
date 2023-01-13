@@ -10,65 +10,85 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  margin: 0;
 }
 
-#search-box {
-  font: inherit;
-  padding: 8px;
-  max-width: 320px;
-  margin-bottom: 16px;
-}
-
-/* additional styles */
-
-.country-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 0;
-}
-
-.country-list__item {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-  font-style: 16px;
-}
-
-.country-list__flag {
+img {
+  width: 100%;
+  max-height: auto;
   display: block;
-  width: 50px;
-  height: 40px;
-  margin-bottom: 15px;
 }
 
-.country-list__name {
-  font-weight: 400;
-  font-size: 20px;
-  margin: 5px 10px;
-}
-
-.country-info__list {
-  list-style: none;
-  padding: 0;
-  font-size: 20px;
-}
-
-.country-info__item {
+.search-form {
+  background-color: darkblue;
+  padding: 15px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
 }
 
-.country-info__name {
-  font-size: 50px;
+.search-form input {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid white;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  outline: none;
 }
 
-.country-info__flag {
-  width: 100px;
-  margin-right: 10px;
+.search-form button {
+  right: 35%;
+  padding: 5px;
+  border-radius: 4px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border: 1px solid white;
+
+  cursor: pointer;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  padding: 20px 10px;
 }
 
-.country-info__categories {
-  font-weight: bold;
-  margin-right: 5px;
+.photo-card {
+  flex-basis: calc((100% -30px) / 5);
+
+  border: 1px solid #eeeeee;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.load-more {
+  display: none;
+  padding: 10px 25px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: darkblue;
+  color: white;
+
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.is-seen {
+  display: block;
 }
