@@ -24,10 +24,9 @@ export default function createMarkUp(arr, galleryRef) {
     })
     .join('');
   galleryRef.insertAdjacentHTML('beforeend', imgMarkUp);
-  const carousel = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
+  const instance = new SimpleLightbox('.gallery a', {
+    captions: 'false',
   });
-  carousel.on('show.simplelightbox');
-  carousel.refresh();
+  instance.on('show.simplelightbox');
+  instance.refresh();
 }
