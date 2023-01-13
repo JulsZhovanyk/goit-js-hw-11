@@ -13,6 +13,12 @@ body {
   margin: 0;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
 img {
   width: 100%;
   max-height: auto;
