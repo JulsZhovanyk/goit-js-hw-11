@@ -11,21 +11,19 @@ const galleryRef = document.querySelector('div.gallery');
 
 formRef.addEventListener('submit', onSearchSubmit);
 loadMoreBtn.addEventListener('click', onLoadMoreClick);
-// window.addEventListener('scroll', onLoadMoreScroll);
 
-async function onSearchSubmit(evt) {
-  evt.preventDefault();
+async function onSearchSubmit(e) {
+  e.preventDefault();
   galleryRef.innerHTML = '';
   loadMoreBtn.classList.remove('is-seen');
   galleryApiService.page = 1;
-  const inputValue = evt.currentTarget.elements.searchQuery.value.trim();
+  const inputValue = e.currentTarget.elements.searchQuery.value.trim();
   galleryApiService.searchQuery = inputValue;
   try {
     if (inputValue) {
       const articles = await galleryApiService.fetchArticles();
-      createMassageOutput(articles);
-      createMurkUp(articles.data.hits, galleryRef);
-      scrollPageDown();
+      createMessageOutput(articles);
+      createMarkUp(articles.data.hits, galleryRef);
       if (articles.data.totalHits > 40) {
         loadMoreBtn.classList.add('is-seen');
       }
@@ -36,13 +34,13 @@ async function onSearchSubmit(evt) {
 async function onLoadMoreClick() {
   try {
     const articles = await galleryApiService.fetchArticles();
-    createMurkUp(articles.data.hits, galleryRef);
+    createMarkUp(articles.data.hits, galleryRef);
     scrollPageDown();
-    createMassageOutput(articles);
+    createMessageOutput(articles);
   } catch (error) {}
 }
 
-function createMassageOutput(articles) {
+function createMessageOutput(articles) {
   const allArticles = document.querySelectorAll('.photo-card');
   if (!articles.data.total) {
     Notiflix.Notify.failure(
@@ -68,7 +66,7 @@ function scrollPageDown() {
     galleryRef.firstElementChild.getBoundingClientRect();
 
   return window.scrollBy({
-    top: cardHeight * 10,
+    top: cardHeight * 2,
     behavior: 'smooth',
   });
 }
